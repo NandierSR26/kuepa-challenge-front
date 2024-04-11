@@ -23,12 +23,7 @@ export const Login = () => {
           }}
           onSubmit={({ username, password }) => {
             // console.log({username, password})
-            login({ username, password }).then((data) => {
-              if(!data.success) {
-                toast.error(data.message);
-              }
-
-              toast.success(data.message);
+            login({ username, password }).then(({data, message, success}) => {
               navigate('/classroom')
             });
           }}

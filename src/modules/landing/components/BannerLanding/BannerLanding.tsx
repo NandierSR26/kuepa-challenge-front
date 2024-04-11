@@ -10,7 +10,7 @@ export const BannerLanding = () => {
         <p>Kuepa edu-tech</p>
         <p>prueba tecnica</p>
 
-        <Button1 text="Registrarse" className="my-7 text-xl" />
+        <Button1 type="button" text="Registrarse" className="my-7 text-xl" />
       </div>
 
       <div className={style.circle + ' ' + style.circle_1}></div>

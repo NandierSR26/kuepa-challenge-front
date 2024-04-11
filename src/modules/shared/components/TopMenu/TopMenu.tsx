@@ -13,7 +13,6 @@ interface TopMenu {
 export const TopMenu = ({ authButton = true, className }: TopMenu) => {
 
   const { logged } = useContext(AuthContext);
-  console.log({logged})
 
   return (
     <header>
