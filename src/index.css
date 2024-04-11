@@ -8,6 +8,17 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: "Barlow", sans-serif;
+}
+
+textarea::placeholder {
+  /* text-align: center; Centra el texto del placeholder */
+  position: relative; /* Establece la posición relativa */
+  top: 50%; /* Mueve el placeholder hacia abajo la mitad de la altura del textarea */
+  transform: translateY(-50%); /* Ajusta el posicionamiento verticalmente */
 }
