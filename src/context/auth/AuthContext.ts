@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import { ILoginData, IUser } from "../../interfaces/user";
+import { ILoginData, ILoginResponse, IUser } from "../../interfaces/user";
 
 interface AuthContextProps {
   user: IUser | null;
-  login: (loginData: ILoginData) => Promise<void>;
+  login: (loginData: ILoginData) => Promise<ILoginResponse>;
   logged: "yes" | "no" | "checking";
 }
 

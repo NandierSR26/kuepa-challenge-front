@@ -2,10 +2,13 @@ import { Formik } from "formik"
 import { Button1, TextIunput, TopMenu } from "../../../shared/components"
 import { useContext } from "react"
 import { AuthContext } from "../../../../context/auth/AuthContext";
+import { useNavigate } from 'react-router-dom'
+import toast from "react-hot-toast";
 
 export const Login = () => {
 
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -18,9 +21,16 @@ export const Login = () => {
             username: '',
             password: ''
           }}
-          onSubmit={( {username, password} ) => {
+          onSubmit={({ username, password }) => {
             // console.log({username, password})
-            login({username, password});
+            login({ username, password }).then((data) => {
+              if(!data.success) {
+                toast.error(data.message);
+              }
+
+              toast.success(data.message);
+              navigate('/classroom')
+            });
           }}
         >
           {({ handleSubmit, errors, touched, values, handleChange }) => (
@@ -50,9 +60,9 @@ export const Login = () => {
                 touched={touched.password}
               />
 
-              <Button1 
-                text="INICIAR SESIÓN" 
-                className="text-2xl w-fit text-center mt-10 ml-auto" 
+              <Button1
+                text="INICIAR SESIÓN"
+                className="text-2xl w-fit text-center mt-10 ml-auto"
                 type="submit"
                 onClick={handleSubmit}
               />

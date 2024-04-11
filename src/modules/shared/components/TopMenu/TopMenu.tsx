@@ -1,7 +1,9 @@
 
+import { useContext } from 'react';
 import { Button1 } from '../Button1/Button1'
 import style from './TopMenu.module.css'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../../../context/auth/AuthContext';
 
 interface TopMenu {
   authButton?: boolean;
@@ -9,6 +11,9 @@ interface TopMenu {
 }
 
 export const TopMenu = ({ authButton = true, className }: TopMenu) => {
+
+  const { logged } = useContext(AuthContext);
+  console.log({logged})
 
   return (
     <header>
@@ -19,9 +24,17 @@ export const TopMenu = ({ authButton = true, className }: TopMenu) => {
         </figure>
 
         {
-          authButton && (
+          (authButton && logged === 'no') && (
             <Link to="/login">
-              <Button1 text="Ingresar" />
+              <Button1 type="button" text="Ingresar" />
+            </Link>
+          )
+        }
+
+        {
+          (authButton && logged === 'yes') && (
+            <Link to="/login">
+              <Button1 type="button" text="Cerrar Sesion" />
             </Link>
           )
         }
