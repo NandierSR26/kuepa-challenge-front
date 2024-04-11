@@ -1,0 +1,40 @@
+.input_container {
+  @apply flex flex-col items-start justify-start w-full;
+}
+
+.input_label {
+  font-size: 24px;
+  font-weight: 500;
+  color: #6C757D;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  margin-bottom: 2px;
+}
+
+.input_box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 18px;
+  border: 2px solid #CCCCCC;
+  margin-bottom: 2px;
+  padding: 15px 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.input_box > input {
+  flex: 1;
+  font-size: 20px;
+  color: #4b5563;
+  font-weight: 500;
+  height: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 1.5rem;
+  outline: none;
+  background-color: inherit;
+  min-width: 0;
+}

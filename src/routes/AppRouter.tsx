@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom"
-import { LandingPage } from "../app/landing"
+import { LandingPage, Login } from "../modules"
 
 
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} ></Route>
+      <Route path="/login" element={<Login />} ></Route>
     </Routes>
   )
 }
