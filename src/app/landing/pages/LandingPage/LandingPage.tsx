@@ -1,6 +1,9 @@
+import { TopMenu } from "../../../shared/components"
 
 export const LandingPage = () => {
   return (
-    <h1>LandingPage</h1>
+    <>
+      <TopMenu />
+    </>
   )
 }
