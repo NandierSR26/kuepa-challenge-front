@@ -1,3 +1,9 @@
 import { createContext } from "react";
+import { Socket } from "socket.io-client";
 
-export const SocketContext = createContext({});
+interface SocketContextProps {
+  socket: Socket | null;
+  online: boolean
+}
+
+export const SocketContext = createContext({} as SocketContextProps);

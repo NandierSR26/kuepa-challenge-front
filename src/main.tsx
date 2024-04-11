@@ -6,14 +6,17 @@ import './index.css'
 import { AuthProvider } from './context/auth/AuthProvider'
 import { Toaster } from 'react-hot-toast'
 import { SocketProvider } from './context/sockets/socketProvider'
+import { ChatProvider } from './context/chat/ChatProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <BrowserRouter>
+  <BrowserRouter>
+    <ChatProvider>
       <AuthProvider>
         <SocketProvider>
           <App />
           <Toaster />
         </SocketProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </ChatProvider>
+  </BrowserRouter>
 )
