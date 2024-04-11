@@ -1,7 +1,11 @@
 
+import { Button1 } from '../Button1/Button1'
 import style from './TopMenu.module.css'
+import { Link } from 'react-router-dom'
 
 export const TopMenu = () => {
+
+
   return (
     <header>
 
@@ -10,9 +14,9 @@ export const TopMenu = () => {
           <img src="/assets/logo-kuepa.png" alt="logo" />
         </figure>
 
-        <button className={style['sign-in-button']}>
-          Ingresar
-        </button>
+        <Link to="/login">
+          <Button1 text="Ingresar" />
+        </Link>
 
       </div>
 

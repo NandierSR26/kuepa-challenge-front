@@ -1,0 +1,54 @@
+.banner_1 {
+  position: relative;
+  background-color: #333639;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 77px);
+  padding: 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.banner_texts {
+  text-align: center;
+}
+
+.banner_texts > h1 {
+  font-size: 48px;
+  color: white;
+  font-weight: 800;
+  font-family: "Nunito", sans-serif !important;
+  margin-bottom: 20px;
+  max-width: 350px;
+}
+
+.banner_texts > p {
+  width: 100%;
+  font-size: 20px;
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #515457;
+  z-index: 1;
+}
+
+.circle_1 {
+  width: 220px;
+  height: 220px;
+  left: -25px;
+  top: -10%;
+}
+
+.circle_2 {
+  bottom: 10%;
+  right: 0;
+  width: 120px;
+  height: 120px;
+}
