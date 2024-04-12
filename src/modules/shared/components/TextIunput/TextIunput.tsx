@@ -31,6 +31,7 @@ export const TextIunput = ({ type, label, name, onChange, value, touched, errors
           placeholder={placeholder && placeholder}
           onChange={onChange}
           value={value}
+          autoComplete={'off'}
         />
       </div>
       {

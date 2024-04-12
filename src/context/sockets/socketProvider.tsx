@@ -4,7 +4,6 @@ import { SocketContext } from './socketContext';
 import { useSocket } from '../../hooks/useSocket';
 import { ChatContext } from '../chat/chatContext';
 import { types } from '../../types/types';
-import { scrollToBottom, scrollToBottomAnimated } from '../../utils/scroll';
 
 
 export const SocketProvider = ({ children }: any) => {
@@ -12,7 +11,7 @@ export const SocketProvider = ({ children }: any) => {
 
     const { socket, online, conectarSocket, desconectarSocket } = useSocket(import.meta.env.VITE_API_URL_SOCKETS);
     const { logged } = useContext(AuthContext);
-    const { dispatch } = useContext(ChatContext);
+    const { dispatch, getGroupChat } = useContext(ChatContext);
 
     useEffect(() => {
         if (logged === "yes") {
@@ -38,11 +37,11 @@ export const SocketProvider = ({ children }: any) => {
 
     useEffect(() => {
         socket?.on('message-to-group', (message) => {
-            
             dispatch({
                 type: types.newMessage,
                 payload: message
             })
+            getGroupChat();
         })
     }, [socket, dispatch])
 

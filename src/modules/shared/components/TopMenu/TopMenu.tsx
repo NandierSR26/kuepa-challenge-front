@@ -4,6 +4,7 @@ import { Button1 } from '../Button1/Button1'
 import style from './TopMenu.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../../context/auth/AuthContext';
+import { scrollToBottomAnimated } from '../../../../utils/scroll';
 
 interface TopMenu {
   authButton?: boolean;
@@ -19,7 +20,7 @@ export const TopMenu = ({ authButton = true, className }: TopMenu) => {
     <header>
 
       <div className={style['header-container'] + ' ' + className}>
-        <figure className={style['header-logo']}>
+        <figure className={style['header-logo']} onClick={() => scrollToBottomAnimated()}>
           <img src="/assets/logo-kuepa.png" alt="logo" />
         </figure>
 

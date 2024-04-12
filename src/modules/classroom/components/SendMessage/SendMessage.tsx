@@ -3,7 +3,6 @@ import { SocketContext } from "../../../../context/sockets/socketContext";
 import { AuthContext } from "../../../../context/auth/AuthContext";
 import { ChatContext } from "../../../../context/chat/chatContext";
 import { DestinationTypes } from "../../../../types/types";
-import { scrollToBottom, scrollToBottomAnimated } from "../../../../utils/scroll";
 
 export const SendMessage = () => {
 
@@ -11,7 +10,7 @@ export const SendMessage = () => {
 
   const { socket } = useContext(SocketContext);
   const { user } = useContext(AuthContext);
-  const { chatState } = useContext(ChatContext);
+  const { chatState, getGroupChat } = useContext(ChatContext);
 
   const textHandleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setMessageText( e.target.value )
 
@@ -29,14 +28,14 @@ export const SendMessage = () => {
       file: '',
       destination_type: DestinationTypes.group
     })
-    
-    scrollToBottomAnimated()
+
+    getGroupChat()    
   }
 
   return (
     <form 
       onSubmit={handleSubmit}
-      className="flex bg-gray-100 w-full h-[60px] border-[1px] border-gray-400 mt-2 overflow-hidden fixed bottom-0"
+      className="flex bg-gray-100 w-full lg:w-[50%] h-[60px] border-[1px] border-gray-400 mt-2 overflow-hidden fixed bottom-0 lg:bottom-[40px]"
     >
       <textarea
         className="w-[75%] border-gray-300 px-2 outline-none resize-none h-full text-base py-[15px]"
@@ -48,7 +47,7 @@ export const SendMessage = () => {
         value={messageText}
       />
 
-      <figure className="relative w-[10%] p-1 pr-2 bg-white cursor-pointer">
+      <figure className="relative w-[7%] p-1 pr-2 bg-white cursor-pointer">
         <img
           src="/assets/clip-icon.svg"
           alt="archivos"

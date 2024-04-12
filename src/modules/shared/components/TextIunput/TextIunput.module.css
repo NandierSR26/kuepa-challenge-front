@@ -3,7 +3,7 @@
 }
 
 .input_label {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #6C757D;
   padding-left: 0.25rem;
@@ -17,23 +17,23 @@
   justify-content: flex-start;
   width: 100%;
   background-color: #fff;
-  border-radius: 18px;
+  border-radius: 15px;
   border: 2px solid #CCCCCC;
   margin-bottom: 2px;
-  padding: 15px 10px;
   font-size: 18px;
   font-weight: 500;
 }
 
 .input_box > input {
   flex: 1;
-  font-size: 20px;
+  font-size: 18px;
   color: #4b5563;
   font-weight: 500;
   height: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-radius: 1.5rem;
+  border-radius: 15px;
+  padding: 15px 10px;
   outline: none;
   background-color: inherit;
   min-width: 0;

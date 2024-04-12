@@ -22,3 +22,8 @@ textarea::placeholder {
   top: 50%; /* Mueve el placeholder hacia abajo la mitad de la altura del textarea */
   transform: translateY(-50%); /* Ajusta el posicionamiento verticalmente */
 }
+
+input::-webkit-input-placeholder {
+  background-color: transparent;
+  color: inherit;
+}

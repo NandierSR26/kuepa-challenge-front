@@ -12,6 +12,9 @@ interface MessageProps {
   file?: string;
 }
 
+const incomingMessage = "rounded-br-xl rounded-tr-xl rounded-bl-xl bg-slate-300";
+const outcomingMessage = "bg-sky-200 rounded-tl-xl rounded-tr-none rounded-br-xl rounded-bl-xl self-end";
+
 export const Message = ({ author, rol, date, text, file, userId }: MessageProps) => {
 
   const { user } = useContext(AuthContext);
@@ -19,7 +22,7 @@ export const Message = ({ author, rol, date, text, file, userId }: MessageProps)
   return (
     <div
       id="message"
-      className={`w-[80%] p-2 mx-4 my-2 bg-slate-300 rounded-br-xl rounded-tr-xl rounded-bl-xl relative ${user!.id === userId && 'self-end bg-sky-300 rounded-tl-xl rounded-tr-none'} `}
+      className={`w-[80%] p-2 mx-4 my-2 relative ${user!.id === userId ? outcomingMessage : incomingMessage} `}
     >
 
       <div className="flex items-center justify-between gap-3 font-semibold mb-[2px]">

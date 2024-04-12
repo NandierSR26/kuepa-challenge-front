@@ -32,6 +32,7 @@ export const ChatProvider = ({ children }: any) => {
                     type: types.loadMessages,
                     payload: data
                 })
+                scrollToBottom()
             }
             
         } catch (error) {

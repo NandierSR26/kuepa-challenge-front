@@ -12,7 +12,7 @@
 }
 
 .polygon_2 {
-  @apply bg-sky-300;
+  @apply bg-sky-200;
   position: absolute;
   top: -2px;
   right: -9px;

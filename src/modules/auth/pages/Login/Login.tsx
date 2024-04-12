@@ -14,7 +14,7 @@ export const Login = () => {
     <div className="flex flex-col min-h-screen">
       <TopMenu authButton={false} className="border-b-[1px] border-gray-200" />
 
-      <main className="bg-[#F9F9F9] py-20 flex-1">
+      <main className="bg-[#F9F9F9] py-20 px-5 flex-1">
 
         <Formik
           initialValues={{
@@ -57,10 +57,11 @@ export const Login = () => {
 
               <Button1
                 text="INICIAR SESIÓN"
-                className="text-2xl w-fit text-center mt-10 ml-auto"
+                className="block text-xl w-full text-center mt-10 ml-auto px-12 md:w-fit"
                 type="submit"
                 onClick={handleSubmit}
               />
+
             </form>
           )}
         </Formik>

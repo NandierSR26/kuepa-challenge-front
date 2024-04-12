@@ -72,7 +72,6 @@ export const AuthProvider = ({ children }: any) => {
     } catch (error) {
       console.log(error);
       setLogged('no');
-      toast.error('Sesion cerrada');
     }
 
   }, [ setLogged, setUser, setJwtToken, toast ])
