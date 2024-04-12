@@ -7,7 +7,7 @@
   flex-direction: column;
   height: calc(100vh - 77px);
   padding: 10px;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -51,4 +51,10 @@
   right: 0;
   width: 120px;
   height: 120px;
+}
+
+@media screen and (width > 768px) {
+  .banner_texts > h1 {
+    max-width: 700px;
+  }
 }

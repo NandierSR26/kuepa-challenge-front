@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { Classroom, LandingPage, Login } from "../modules"
+import { Classroom, LandingPage, Login, Register } from "../modules"
 import { PrivateRoutes } from "./PrivateRoutes"
 import { PublicRoutes } from "./PublicRoutes"
 import { AuthContext } from '../context/auth/AuthContext';
@@ -26,6 +26,7 @@ export const AppRouter = () => {
       <Route element={<PublicRoutes />}>
         <Route path="/" element={<LandingPage />} ></Route>
         <Route path="/login" element={<Login />} ></Route>
+        <Route path="/register" element={<Register />} ></Route>
       </Route>
     </Routes>
   )

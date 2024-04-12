@@ -20,7 +20,7 @@ export const TopMenu = ({ authButton = true, className }: TopMenu) => {
     <header>
 
       <div className={style['header-container'] + ' ' + className}>
-        <figure className={style['header-logo']} onClick={() => scrollToBottomAnimated()}>
+        <figure className={style['header-logo']} onClick={() => navigate('/')}>
           <img src="/assets/logo-kuepa.png" alt="logo" />
         </figure>
 

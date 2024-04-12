@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ILoginData, ILoginResponse, IUser } from "../../interfaces/user"
+import { ILoginData, IAuthResponse, IUser, IRegisterData } from "../../interfaces/user"
 import { AuthContext } from "./AuthContext"
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -10,10 +10,36 @@ export const AuthProvider = ({ children }: any) => {
   const [jwtToken, setJwtToken] = useState<string>('')
   const [logged, setLogged] = useState<"yes" | "no" | "checking">("checking")
 
-  const login = useCallback(async (loginData: ILoginData): Promise<ILoginResponse> => {
+  const register = useCallback( async(registerData: IRegisterData) => {
+    try {
+      
+      const { data: { data, success, message } } = await axios.post<IAuthResponse>(`${import.meta.env.VITE_API_URL}/auth/register`, registerData);
+
+      if (!success) {
+        setLogged('no');
+        setUser(null);
+
+        toast.error(message);
+        return;
+      }
+
+      setUser(data.user);
+      setJwtToken(data.token);
+      setLogged('yes');
+
+      localStorage.setItem('token', data.token);
+      toast.success(message);
+
+    } catch (error) {
+      console.log(error);
+      toast.error('Algo salio mal');      
+    }
+  }, [])
+
+  const login = useCallback(async (loginData: ILoginData): Promise<IAuthResponse> => {
     try {
       setLogged('checking');
-      const { data: { data, success, message } } = await axios.post<ILoginResponse>(`${import.meta.env.VITE_API_URL}/auth/login`, loginData);
+      const { data: { data, success, message } } = await axios.post<IAuthResponse>(`${import.meta.env.VITE_API_URL}/auth/login`, loginData);
 
       if (!success) {
         setLogged('no');
@@ -35,7 +61,7 @@ export const AuthProvider = ({ children }: any) => {
     } catch (error) {
       console.log(error);
       toast.error('Algo salio mal');
-      return {} as ILoginResponse
+      return {} as IAuthResponse
     }
   }, [axios, setLogged, setUser, setJwtToken, toast])
 
@@ -52,7 +78,7 @@ export const AuthProvider = ({ children }: any) => {
     const token = localStorage.getItem('token')
 
     try {
-      const { data: { data, message, success } } = await axios.get<ILoginResponse>(`${import.meta.env.VITE_API_URL}/auth/validate/${token}`, {
+      const { data: { data, message, success } } = await axios.get<IAuthResponse>(`${import.meta.env.VITE_API_URL}/auth/validate/${token}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -84,6 +110,7 @@ export const AuthProvider = ({ children }: any) => {
 
       login,
       logout,
+      register,
       verifyAuth
     }}>
       {children}

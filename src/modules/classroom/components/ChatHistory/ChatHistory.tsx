@@ -28,7 +28,7 @@ export const ChatHistory = () => {
         chatState.messages.map(message => (
           <Message
             key={message.id}
-            author={message.from.name}
+            author={message.from.username}
             userId={message.from.id}
             text={message.text}
             rol={message.from.rol}
