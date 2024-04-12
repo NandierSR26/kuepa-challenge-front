@@ -11,6 +11,6 @@ export const scrollToBottom = () => {
   const chatContainer = document.getElementById('last-message');
 
   if (!chatContainer) return
-  chatContainer.scrollIntoView({ behavior: 'instant', block: 'start' });
+  chatContainer.scrollIntoView({ behavior: 'auto', block: 'start' });
 
 }
