@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { SocketContext } from "../../../../context/sockets/socketContext";
 import { AuthContext } from "../../../../context/auth/AuthContext";
 import { ChatContext } from "../../../../context/chat/chatContext";
+import { DestinationTypes } from "../../../../types/types";
+import { scrollToBottom, scrollToBottomAnimated } from "../../../../utils/scroll";
 
 export const SendMessage = () => {
 
@@ -19,12 +21,16 @@ export const SendMessage = () => {
     if( messageText.trim().length === 0 ) return;
     setMessageText('');
 
+    
     socket?.emit('message-to-group', {
       from: user?.id,
       to: chatState.users.map(user => user.id ).filter(id => id !== user?.id ),
       text: messageText,
-      file: ''
+      file: '',
+      destination_type: DestinationTypes.group
     })
+    
+    scrollToBottomAnimated()
   }
 
   return (
@@ -33,7 +39,7 @@ export const SendMessage = () => {
       className="flex bg-gray-100 w-full h-[60px] border-[1px] border-gray-400 mt-2 overflow-hidden fixed bottom-0"
     >
       <textarea
-        className="w-[75%] border-gray-300 px-2 outline-none resize-none h-full text-xl py-[15px]"
+        className="w-[75%] border-gray-300 px-2 outline-none resize-none h-full text-base py-[15px]"
         placeholder="Escribe un mensaje"
         style={{
           height: '100%'

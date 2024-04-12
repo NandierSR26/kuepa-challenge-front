@@ -10,3 +10,16 @@
   clip-path: polygon(0% 0%, 100% 0%, 63% 100%);
   z-index: 0;
 }
+
+.polygon_2 {
+  @apply bg-sky-300;
+  position: absolute;
+  top: -2px;
+  right: -9px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(250deg);
+  border-radius: 2px;
+  clip-path: polygon(15% 10%, 104% -5%, 65% 95%);
+  z-index: 0;
+}

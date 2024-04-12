@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { Button1 } from '../Button1/Button1'
 import style from './TopMenu.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../../context/auth/AuthContext';
 
 interface TopMenu {
@@ -12,7 +12,8 @@ interface TopMenu {
 
 export const TopMenu = ({ authButton = true, className }: TopMenu) => {
 
-  const { logged } = useContext(AuthContext);
+  const { logged, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <header>
@@ -32,9 +33,14 @@ export const TopMenu = ({ authButton = true, className }: TopMenu) => {
 
         {
           (authButton && logged === 'yes') && (
-            <Link to="/login">
-              <Button1 type="button" text="Cerrar Sesion" />
-            </Link>
+            <Button1 
+              type="button" 
+              text="Cerrar Sesion" 
+              onClick={() => {
+                logout()
+                navigate('/login')
+              }} 
+            />
           )
         }
 

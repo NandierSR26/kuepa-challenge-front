@@ -4,9 +4,11 @@ import { SocketContext } from './socketContext';
 import { useSocket } from '../../hooks/useSocket';
 import { ChatContext } from '../chat/chatContext';
 import { types } from '../../types/types';
+import { scrollToBottom, scrollToBottomAnimated } from '../../utils/scroll';
 
 
 export const SocketProvider = ({ children }: any) => {
+    console.log('socket provider')
 
     const { socket, online, conectarSocket, desconectarSocket } = useSocket(import.meta.env.VITE_API_URL_SOCKETS);
     const { logged } = useContext(AuthContext);
@@ -36,20 +38,20 @@ export const SocketProvider = ({ children }: any) => {
 
     useEffect(() => {
         socket?.on('message-to-group', (message) => {
-            console.log({ message })
+            
             dispatch({
                 type: types.newMessage,
                 payload: message
             })
         })
-    }, [ socket, dispatch ])
+    }, [socket, dispatch])
 
     return (
         <SocketContext.Provider value={{
-            socket, 
+            socket,
             online
         }}>
-            { children }
+            {children}
         </SocketContext.Provider>
     )
 }

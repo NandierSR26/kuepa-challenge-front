@@ -3,7 +3,7 @@ export interface IUser {
   name: string; 
   username: string;
   rol: string;
-  photo: string;
+  photo?: string;
   online: boolean;
 }
 

@@ -8,4 +8,7 @@ export const types = {
     closeSesion: '[Chat] Close Sesion'
 }
 
-const { loadMessages, LoadedUsers, activateChat, newMessage, closeSesion } = types;
+export const DestinationTypes = {
+    user: 'USER',
+    group: 'GROUP'
+}

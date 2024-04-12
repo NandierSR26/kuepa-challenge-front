@@ -20,6 +20,7 @@ export const AppRouter = () => {
     <Routes>
       <Route element={<PrivateRoutes />}>
         <Route path="/classroom" element={ <Classroom /> } />
+        <Route path="/chat/:id" element={ <Classroom /> } />
       </Route>
 
       <Route element={<PublicRoutes />}>

@@ -1,12 +1,14 @@
 import { IUser } from "./user";
 
 export interface IMessage {
-  from: string;
-  to: string;
-  text: string;
-  file: string;
-  createdAt: string;
-  updatedAt: string
+  from:             IUser;
+  to:               string[] | string;
+  text:             string;
+  file:             string;
+  destination_type: string;
+  createdAt:        string;
+  updatedAt:        string;
+  id:               string;
 }
 
 export interface IChatState {
@@ -22,4 +24,10 @@ export interface IChatTypes {
   newMessage: string;
   loadMessages: string;
   closeSesion: string;
+}
+
+export interface IChatResponse {
+  success: boolean;
+  data:    IMessage[];
+  message: string;
 }

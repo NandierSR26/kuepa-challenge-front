@@ -10,13 +10,13 @@ import { ChatProvider } from './context/chat/ChatProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
-    <ChatProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <ChatProvider>
         <SocketProvider>
           <App />
           <Toaster />
         </SocketProvider>
-      </AuthProvider>
-    </ChatProvider>
+      </ChatProvider>
+    </AuthProvider>
   </BrowserRouter>
 )
