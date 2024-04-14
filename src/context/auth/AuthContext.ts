@@ -6,7 +6,7 @@ interface AuthContextProps {
   logged: "yes" | "no" | "checking";
   jwtToken: string;
 
-  login: (loginData: ILoginData) => Promise<IAuthResponse>;
+  login: (loginData: ILoginData) => Promise<void>;
   register: (registerData: IRegisterData) => Promise<void>;
   logout: () => void;
   verifyAuth: () => Promise<void>

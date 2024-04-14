@@ -23,9 +23,7 @@ export const Login = () => {
           }}
           onSubmit={({ username, password }) => {
             // console.log({username, password})
-            login({ username, password }).then(({data, message, success}) => {
-              navigate('/classroom')
-            });
+            login({ username, password }).then(() => {});
           }}
         >
           {({ handleSubmit, errors, touched, values, handleChange }) => (

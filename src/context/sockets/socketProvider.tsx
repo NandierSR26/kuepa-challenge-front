@@ -7,7 +7,6 @@ import { types } from '../../types/types';
 
 
 export const SocketProvider = ({ children }: any) => {
-    console.log('socket provider')
 
     const { socket, online, conectarSocket, desconectarSocket } = useSocket(import.meta.env.VITE_API_URL_SOCKETS);
     const { logged } = useContext(AuthContext);
